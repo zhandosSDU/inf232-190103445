@@ -1,0 +1,55 @@
+// variables
+@background-color: rgb(231, 118, 107);
+@font-size-big: 70px;
+@font-size-middle: 40px;
+
+
+// mixin & function
+
+.back-color(@a) when (lightness(@a)>=50%){
+    color: black;
+}
+.back-color(@a) when (lightness(@a)<50%){
+    color: white;
+}
+
+body{
+    background: @background-color;
+    text-align: center;
+    .back-color(@background-color);
+}
+h1{
+    font-size: @font-size-big;
+}
+.answers{
+    display: none;
+    h2{
+        font-size: 30px;
+        margin-top: 40px;
+    }
+}
+p{
+    font-size: @font-size-middle;
+}
+.btn{
+    .bordered_awesome;
+    .radius(20px);
+    width: 200px;
+}
+.bordered_awesome{
+  background-color: #2dbed8;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+}
+.radius(@num){
+    border-radius: @num;
+}
+input{
+    display: none;
+}
+#toggle:checked + .answers{
+    display: inline;
+}
+
